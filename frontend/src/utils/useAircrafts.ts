@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { DUMMY_DATA } from "./dummyData";
 
-type AircraftData = {
+export type AircraftData = {
   hex: string;
   squawk: string;
   flight: string;
