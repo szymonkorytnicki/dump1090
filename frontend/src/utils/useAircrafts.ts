@@ -23,10 +23,13 @@ export type AircraftData = {
 
 export function useAircrafts() {
   const [aircrafts, setAircrafts] = useState<AircraftData[]>([]);
+  const [currentAircraft, setCurrentAircraft] = useState<string | undefined>(undefined);
+  const clearCurrentAircraft = () => setCurrentAircraft(undefined);
+
   useEffect(() => {
     setTimeout(() => {
       setAircrafts(DUMMY_DATA);
     }, 1000);
   });
-  return { data: aircrafts };
+  return { data: aircrafts, current: currentAircraft, setCurrent: setCurrentAircraft, clearCurrentAircraft };
 }

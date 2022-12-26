@@ -1,27 +1,31 @@
 import { style } from "@vanilla-extract/css";
 import { desktopOnly } from "../responsive-wrapper/ResponsiveWrapper.css";
 
-export const PaneWrapper = style([
+export const ViewWrapper = style([
   desktopOnly,
   {
-    borderRadius: "8px",
     backgroundColor: "white",
-    height: "30vh",
+    height: "100vh",
+    width: "300px",
+    position: "fixed",
+    top: 0,
+    left: 0, // TODO header height?
+    zIndex: 9999,
   },
 ]);
 
-export const PaneTitle = style({
+export const ViewTitle = style({
   fontSize: "1.5rem",
   fontWeight: "bold",
   padding: "1rem",
   borderBottom: "1px solid #eee",
 });
 
-export const PaneContent = style({
+export const ViewContent = style({
   padding: "1rem",
 });
 
-export const PaneFooter = style({
+export const ViewFooter = style({
   padding: "1rem",
   borderTop: "1px solid #eee",
 });

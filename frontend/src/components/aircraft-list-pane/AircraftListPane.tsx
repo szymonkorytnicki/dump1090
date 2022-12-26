@@ -19,7 +19,7 @@ export function AircraftListPane({ aircrafts }: AircraftListPaneProps) {
           ))}
         </ul>
       </PaneContent>
-      <PaneFooter>Footer</PaneFooter>
+      <PaneFooter>{aircrafts?.length || 0} aircrafts</PaneFooter>
     </Pane>
   );
 }

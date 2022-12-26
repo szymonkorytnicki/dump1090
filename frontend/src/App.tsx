@@ -1,17 +1,39 @@
+import { AircraftListPane } from "./components/aircraft-list-pane/AircraftListPane";
 import { Header } from "./components/header/Header";
 import { Map } from "./components/map/Map";
-import { Navigator } from "./components/navigator/Navigator";
 import { UTCTime } from "./components/utc-time/UTCTime";
+import { useAircrafts } from "./utils/useAircrafts";
+import { CurrentAircraftView } from "./components/current-aircraft-view/CurrentAircraftView";
+import { AircraftListSlide } from "./components/aircraft-list-slide/AircraftListSlide";
 
 function App() {
+  const { data, current, setCurrent, clearCurrentAircraft } = useAircrafts();
   return (
     <div className="App">
       <Header>
         <span>Dump1090</span>
         <UTCTime />
       </Header>
-      <Map />
-      <Navigator />
+      <Map aircrafts={data} onAircraftClick={setCurrent} />
+      <AircraftListPane aircrafts={data} />
+      {current && (
+        <>
+          {/* Desktop */}
+          <CurrentAircraftView
+            aircraftData={data.find((aircraft) => aircraft.hex === current)}
+            onClose={clearCurrentAircraft}
+          />
+        </>
+      )}
+      {current ? (
+        <CurrentAircraftSlide
+          aircraftData={data.find((aircraft) => aircraft.hex === current)}
+          onClose={clearCurrentAircraft}
+          // TODO onclickoutside
+        />
+      ) : (
+        <AircraftListSlide aircrafts={data} />
+      )}
     </div>
   );
 }
@@ -20,10 +42,10 @@ export default App;
 
 /**
  * TODO:
- * - Display map
- * - Display aircrafts on the map
- * - Display list of aircrafts
- * - Display aircraft details
+ * - Display map ✅
+ * - Display aircrafts on the map ✅
+ * - Display list of aircrafts ✅
+ * - Display aircraft details ✅
  * - Build process integration
  * - Display settings
  * - Display aircrafts trail
