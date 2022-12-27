@@ -1,5 +1,6 @@
 import { AircraftData } from "../../utils/useAircrafts";
 import { Pane, PaneContent, PaneTitle, PaneFooter } from "../pane/Pane";
+import { PlaneIcon } from "../plane-icon/PlaneIcon";
 import { aircraftListPane } from "./AircraftListPane.css";
 
 interface AircraftListPaneProps {
@@ -18,6 +19,7 @@ export function AircraftListPane({ aircrafts }: AircraftListPaneProps) {
             </li>
           ))}
         </ul>
+        <PlaneIcon {...(aircrafts ? aircrafts[0] : null)} isSelected={true} />
       </PaneContent>
       <PaneFooter>{aircrafts?.length || 0} aircrafts</PaneFooter>
     </Pane>

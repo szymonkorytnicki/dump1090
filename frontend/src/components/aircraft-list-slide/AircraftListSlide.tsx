@@ -1,5 +1,5 @@
 import { AircraftData } from "../../utils/useAircrafts";
-import { Slide, SlideContent, SlideFooter, SlideTitle } from "../slide/Pane";
+import { Slide, SlideContent, SlideFooter, SlideTitle } from "../slide/Slide";
 
 interface AircraftListSlideProps {
   aircrafts: AircraftData[];
