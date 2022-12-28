@@ -45,22 +45,26 @@ export default App;
  * - Display aircraft details ✅
  * - Expandable Slide on mobile, onclickoutside etc ✅
  * - Aircraft icon with orientation ✅
- * - Display aircrafts trail (deal with disappearing aircrafts, store aircrafts in state)
- * - Escape button to close View
- * - Build process integration
- * - Integrate with legacy frontend (add link on legacy frontend)
+ * - Escape button to close View ✅
+ * - Move zoom control to bottom right or disable it ✅
+ * - Use nautical miles as default unit in maps bottom left ✅ uses km + imperial for now
+ * - Display aircrafts trail (deal with disappearing aircrafts, store aircrafts in state etc)
  * - Map/display settings
- * - Create PWA
+ * - Indicator is speed / altitude increasing or decreasing
+ * - Make sure planes have the same color as in legacy frontend
+ *
+ * NICE TO HAVES:
  * - Ability to center on my current location read from browser
  * - Preserve zoom and center in local storage
- * - Move zoom control to bottom right or disable it
- * - Lazy load components for desktop and mobile
  * - Add favicon
- * - zIndex management, CSS variables
- * - Use nautical miles as default unit in maps bottom left
  * - Add altitude chart
- * - Trail with altitude
- * - Is speed / altitude increasing or decreasing
- * - Ability to customize map server
  * - Map shows sunlight like FR24
+ * - Ability to customize map server
+ *
+ * FINAL STEPS
+ * - zIndex management, CSS variables
+ * - Lazy load components for desktop and mobile
+ * - Create PWA
+ * - Build process integration
+ * - Integrate with legacy frontend (add link on legacy frontend)
  */

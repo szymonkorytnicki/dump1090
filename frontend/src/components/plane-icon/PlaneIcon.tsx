@@ -70,15 +70,14 @@ function getIcon({ isSelected, seen, squawk, track }: PlaneIconProps) {
     markerColor = StaleColor;
   }
 
-  // If the squawk code is one of the international emergency codes,
-  // match the info window alert color.
-  if (squawk == 7500) {
+  // If the squawk code is one of the international emergency codes, match the info window alert color.
+  if (squawk === 7500) {
     markerColor = "rgb(255, 85, 85)";
   }
-  if (squawk == 7600) {
+  if (squawk === 7600) {
     markerColor = "rgb(0, 255, 255)";
   }
-  if (squawk == 7700) {
+  if (squawk === 7700) {
     markerColor = "rgb(255, 255, 0)";
   }
 

@@ -1,5 +1,5 @@
 import "leaflet/dist/leaflet.css";
-import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, ScaleControl, ZoomControl } from "react-leaflet";
 import { styled } from "../styled/Styled";
 import { map } from "./Map.css";
 import { AircraftData, useAircrafts } from "../../utils/useAircrafts";
@@ -20,7 +20,9 @@ export function Map({ aircrafts, onAircraftClick }: MapProps) {
   return (
     <>
       <MapWrapper>
-        <MapContainer center={position} zoom={10} scrollWheelZoom={true}>
+        <MapContainer center={position} zoomControl={false} zoom={10} minZoom={5} maxZoom={17}>
+          <ScaleControl position="bottomleft" imperial={true} />
+          <ZoomControl position="bottomleft" />
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

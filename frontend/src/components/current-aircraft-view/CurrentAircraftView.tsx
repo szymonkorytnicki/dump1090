@@ -7,7 +7,7 @@ interface CurrentAirCraftViewProps {
 
 export function CurrentAircraftView({ aircraftData, onClose }: CurrentAirCraftViewProps) {
   return (
-    <View>
+    <View onClose={onClose}>
       <ViewTitle>
         <a target="_blank" rel="noreferrer" href={`https://planefinder.net/flight/${aircraftData?.flight}`}>
           {aircraftData?.flight}
