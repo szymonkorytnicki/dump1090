@@ -1,8 +1,24 @@
+import { AircraftResults } from "./useAircrafts";
+
+export function createData(data: AircraftResults) {
+  if (data.length === 0) {
+    return [DUMMY_DATA];
+  }
+  return [...data, createAircraftData(data.at(-1))];
+}
+
+function createAircraftData(data) {
+  return data.map((aircraft) => ({
+    ...aircraft,
+    lat: aircraft.lat + Math.random() * 0.02,
+  }));
+}
+
 export const DUMMY_DATA = [
   {
     hex: "48ae23",
     squawk: "6510",
-    flight: "LOT3    ",
+    flight: "LOT3",
     lat: 54.28652,
     lon: 18.695485,
     nucp: 7,
@@ -21,7 +37,7 @@ export const DUMMY_DATA = [
   {
     hex: "471f88",
     squawk: "4505",
-    flight: "WZZ8195 ",
+    flight: "WZZ8195",
     lat: 54.40183,
     lon: 18.760404,
     nucp: 7,

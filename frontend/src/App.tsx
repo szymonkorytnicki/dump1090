@@ -48,6 +48,7 @@ export default App;
  * - Escape button to close View ✅
  * - Move zoom control to bottom right or disable it ✅
  * - Use nautical miles as default unit in maps bottom left ✅ uses km + imperial for now
+ *
  * - Display aircrafts trail (deal with disappearing aircrafts, store aircrafts in state etc)
  * - Map/display settings
  * - Indicator is speed / altitude increasing or decreasing

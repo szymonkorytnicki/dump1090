@@ -7,7 +7,6 @@ export function View({ onClose, children }: { onClose: () => void; children: Rea
   useEffect(() => {
     const onEscClick = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        console.log("Escape");
         onClose();
       }
     };

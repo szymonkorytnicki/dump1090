@@ -1,11 +1,12 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { DUMMY_DATA } from "./dummyData";
+import { DUMMY_DATA, createData } from "./dummyData";
 
 const AircraftsContext = createContext({
   data: [] as AircraftData[],
   current: undefined as string | undefined,
   setCurrent: (hex: string) => undefined,
   clearCurrentAircraft: () => undefined,
+  currentAircraftLine: [] as AircraftData[],
 });
 
 export type AircraftData = {
@@ -28,27 +29,32 @@ export type AircraftData = {
   seen: number;
 };
 
+export type AircraftResults = AircraftData[];
+
 export function useAircrafts() {
   return useContext(AircraftsContext);
 }
 
 export function AircraftsContextProvider({ children }: { children: React.ReactNode }) {
-  const [aircrafts, setAircrafts] = useState<AircraftData[]>([]);
+  const [aircrafts, setAircrafts] = useState<AircraftResults[]>([]);
   const [currentAircraft, setCurrentAircraft] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    setTimeout(() => {
-      setAircrafts(DUMMY_DATA);
-    }, 1000);
+    setInterval(() => {
+      setAircrafts((d) => {
+        return createData(d);
+      });
+    }, 1500);
   }, []);
 
   return (
     <AircraftsContext.Provider
       value={{
-        data: aircrafts,
+        data: aircrafts.at(-1) || [],
         current: currentAircraft,
         setCurrent: (hex) => void setCurrentAircraft(hex),
         clearCurrentAircraft: () => void setCurrentAircraft(undefined),
+        currentAircraftLine: aircrafts.flat().filter((aircraft) => aircraft.hex === currentAircraft),
       }}
     >
       {children}
